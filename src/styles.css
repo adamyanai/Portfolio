@@ -1,0 +1,274 @@
+body {
+    font-family: 'Mukta', sans-serif;
+}
+
+section {
+    background-color: rgb(228, 224, 224);
+}
+
+.hero {
+    background-color: #DDA66F;
+    height: 100vh;
+    color: white;
+    font-size: 40px;
+}
+
+.hero2 {
+    background-color: #DDA66F;
+    height: 1800px;
+    color: white;
+}
+
+.hero3 {
+    background-color: #DDA66F;
+    height: 14500px;
+    color: white;
+}
+
+footer {
+    background-color: #DDA66F;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    width: 500px;
+    justify-content: space-around;
+    font-size: 30px;
+}
+
+li {
+    /* width: 200px; */
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 90px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 50px;
+    display: center;
+}
+
+h3 {
+    font-size: 38px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 60px;
+}
+
+h5 {
+    font-size: 65px;
+}
+
+h6 {
+    font-size: 80px;
+    margin-top: 0px;
+    margin-bottom: -80px;
+}
+
+h7 {
+    font-size: 38px;
+}
+
+h8 {
+    font-size: 48px;
+}
+
+p {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+}
+
+.p2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    margin-right: 120px;
+    margin-left: 120px;
+}
+
+.subtext {
+    font-size: 19px;
+    font-weight: 300;
+    padding: 20px;
+}
+
+.hero-area {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    margin-left: 80px;
+    margin-bottom: 200px;
+}
+
+.button {
+    width: 200px;
+    height: 55px;
+    border-radius: 50px;
+    background-color: coral;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 10px;
+    margin-bottom: -50px;
+}
+
+.button:hover {
+    background-color: #ef744b;
+}
+
+.button:active {
+    background-color: #A9A9A9;
+    color: #808080;
+}
+
+.flags-video {
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.sub-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.sub-section-alternative {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+}
+
+
+.headshot {
+    width: 300px;
+    border-radius: 100px;
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.headshot-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 300px;
+    height: 700px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 20px white;
+    justify-content: space-around;
+    text-align: center;
+    margin: 10px;
+}
+
+.project-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.project-card2 {
+    width: 600px;
+    height: 600px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 20px white;
+    justify-content: space-around;
+    text-align: center;
+    margin: 10px;
+}
+
+.project-container2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .project-container2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .logo-video {
+        margin-top: -150px;
+        margin-left: 150px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .archpdf {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.logo-video {
+    margin-top: -150px;
+    margin-right: 200px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.project-image {
+    margin-top:25px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+hr {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.hr2 {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.project-link{
+    text-decoration: none;
+    color: #ef744b;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.archpdf {
+    margin-left: 10vh;
+    margin-right: 10vh;
+    padding-top: 100px;
+}
+
+.codepage{
+    margin-top: 150px;
+    margin-right: 140px;
+    margin-left: 140px;
+}
