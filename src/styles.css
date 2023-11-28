@@ -1,36 +1,38 @@
+
 body {
     font-family: 'Mukta', sans-serif;
+    background-color: #c6c3bf;
 }
 
 section {
-    background-color: rgb(228, 224, 224);
+    background-color: rgb(183, 183, 183);
 }
 
 .hero {
-    background-color: #DDA66F;
+    background-color: #C6C3BF;
     height: 100vh;
-    color: white;
+    color: rgb(35, 80, 20);
     font-size: 40px;
 }
 
 .hero2 {
-    background-color: #DDA66F;
+    background-color: #C6C3BF;
     height: 1800px;
-    color: white;
+    color: rgb(35, 80, 20);
 }
 
 .hero3 {
-    background-color: #DDA66F;
-    height: 14500px;
-    color: white;
+    background-color: #C6C3BF;
+    height: flex;
+    color: rgb(35, 80, 20);
 }
 
 footer {
-    background-color: #DDA66F;
-    color: white;
+    background-color: #C6C3BF;
+    color: rgb(35, 80, 20);
     text-align: center;
     padding-top: 50px;
-    padding-bottom: 150px;
+    padding-bottom: 80px;
 }
 
 nav {
@@ -57,13 +59,16 @@ h1 {
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 40px;
     display: center;
+    color: white;
 }
 
 h3 {
     font-size: 38px;
     font-weight: 300;
+    color: white;
+    margin-top: -50px;
 }
 
 h4 {
@@ -71,7 +76,7 @@ h4 {
 }
 
 h5 {
-    font-size: 65px;
+    font-size: 50px;
 }
 
 h6 {
@@ -88,10 +93,18 @@ h8 {
     font-size: 48px;
 }
 
+h9 {
+    font-size: 38px;
+    font-weight: 300;
+    color: white;
+    margin-bottom: -150px;
+}
+
 p {
     margin: 0;
     font-size: 26px;
     font-weight: 300;
+    color: rgb(229, 229, 229);
 }
 
 .p2 {
@@ -101,6 +114,40 @@ p {
     margin-bottom: 60px;
     margin-right: 120px;
     margin-left: 120px;
+}
+
+p3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    color: #C6C3BF;
+}
+
+p31 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    color: #C6C3BF;
+}
+
+p4 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 300;
+    color: rgb(35, 80, 20);
+}
+
+p5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(183, 183, 183);
+}
+
+p6 {
+    font-size: 30px;
+    font-weight: 300;
+    color: rgb(35, 80, 20);
 }
 
 .subtext {
@@ -168,6 +215,12 @@ p {
     margin-top: 30px;
 }
 
+.expics {
+    width: 600px;
+    border-radius: 20px;
+    margin-top: 80px;
+}
+
 .headshot-container {
     display: flex;
     align-items: center;
@@ -175,10 +228,10 @@ p {
 }
 
 .project-card {
-    width: 300px;
-    height: 700px;
+    width: 400px;
+    height: 600px;
     border-radius: 50px;
-    box-shadow: 5px 5px 20px white;
+    box-shadow: 5px 5px 20px rgb(208, 208, 208);
     justify-content: space-around;
     text-align: center;
     margin: 10px;
@@ -191,9 +244,9 @@ p {
 
 .project-card2 {
     width: 600px;
-    height: 600px;
+    height: 500px;
     border-radius: 50px;
-    box-shadow: 5px 5px 20px white;
+    box-shadow: 5px 5px 20px rgb(208, 208, 208);
     justify-content: space-around;
     text-align: center;
     margin: 10px;
@@ -235,6 +288,13 @@ p {
     flex-wrap: wrap;
 }
 
+.logo {
+    width: 500px;
+    border-radius: 100px;
+    margin-right: -100px;
+    margin-top: -30px;
+}
+
 .project-image {
     margin-top:25px;
     width: 250px;
@@ -253,7 +313,7 @@ hr {
 
 .project-link{
     text-decoration: none;
-    color: #ef744b;
+    color: rgb(35, 80, 20);
 }
 
 a {
@@ -268,7 +328,20 @@ a {
 }
 
 .codepage{
-    margin-top: 150px;
+    margin-top: 26px;
     margin-right: 140px;
     margin-left: 140px;
+}
+
+.backhome {
+    text-decoration: none;
+    color: rgb(35, 80, 20);
+}
+
+.cad-video {
+    margin-top: -200px;
+    margin-bottom: -280px;
+    display: center;
+    align-items: flex;
+    flex-wrap: wrap;
 }
