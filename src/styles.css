@@ -1,35 +1,87 @@
 
+.lang:hover{
+    color:#B7B6ED;
+}
+
+.social:hover{
+    color:#B7B6ED;
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+.scrollTop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    border-radius: 1px solid #fff;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.scrollTop:hover{
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+/* p {
+    height: 4rem;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 0.5 rem; 
+    justify-content: flex-end;
+}
+
+p span {
+    display: block; 
+    line-height: 4rem; 
+    font-size: 4rem;
+    text-transform: uppercase;
+    transform: translateY(200%);
+    margin: 0.05rem;
+}
+
+p span.active {
+transform: translateY(0%);
+transition: 1s ease-out;
+} */
+
 body {
     font-family: 'Mukta', sans-serif;
-    background-color: #c6c3bf;
+    background-color: #000000;
 }
 
 section {
-    background-color: rgb(183, 183, 183);
+    background-color: rgb(0, 0, 0);
 }
 
 .hero {
-    background-color: #C6C3BF;
+    background-color: #000000;
     height: 100vh;
-    color: rgb(35, 80, 20);
+    color: rgb(255, 255, 255);
     font-size: 40px;
 }
 
 .hero2 {
-    background-color: #C6C3BF;
+    background-color: #000000;
     height: 1800px;
-    color: rgb(35, 80, 20);
+    color: #B7B6ED;
 }
 
 .hero3 {
-    background-color: #C6C3BF;
+    background-color: #000000;
     height: flex;
-    color: rgb(35, 80, 20);
+    color: #B7B6ED;
 }
 
 footer {
-    background-color: #C6C3BF;
-    color: rgb(35, 80, 20);
+    background-color: #000000;
+    color: #B7B6ED;
     text-align: center;
     padding-top: 50px;
     padding-bottom: 80px;
@@ -61,7 +113,7 @@ h1 {
 h2 {
     font-size: 40px;
     display: center;
-    color: white;
+    color: #B7B6ED;
 }
 
 h3 {
@@ -86,11 +138,11 @@ h6 {
 }
 
 h7 {
-    font-size: 38px;
+    font-size: 30px;
 }
 
 h8 {
-    font-size: 48px;
+    font-size: 35px;
 }
 
 h9 {
@@ -100,11 +152,21 @@ h9 {
     margin-bottom: -150px;
 }
 
-p {
+p0 {
     margin: 0;
     font-size: 26px;
     font-weight: 300;
-    color: rgb(229, 229, 229);
+    color: #B7B6ED;
+}
+
+p {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    color: #ffffff;
 }
 
 .p2 {
@@ -120,7 +182,7 @@ p3 {
     margin: 0;
     font-size: 26px;
     font-weight: 300;
-    color: #C6C3BF;
+    color: #000000;
 }
 
 p31 {
@@ -134,20 +196,24 @@ p4 {
     margin: 0;
     font-size: 30px;
     font-weight: 300;
-    color: rgb(35, 80, 20);
+    color: white;
 }
 
 p5 {
     margin: 0;
     font-size: 15px;
     font-weight: 300;
-    color: rgb(183, 183, 183);
+    color: rgb(0, 0, 0);
 }
 
 p6 {
-    font-size: 30px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    margin: 0;
+    font-size: 26px;
     font-weight: 300;
-    color: rgb(35, 80, 20);
+    color: #B7B6ED;
 }
 
 .subtext {
@@ -231,10 +297,14 @@ p6 {
     width: 400px;
     height: 600px;
     border-radius: 50px;
-    box-shadow: 5px 5px 20px rgb(208, 208, 208);
+    box-shadow: 5px 5px 200px #B7B6ED;
     justify-content: space-around;
     text-align: center;
     margin: 10px;
+}
+
+.project-card:hover{
+    box-shadow: 5px 5px 20px #B7B6ED;
 }
 
 .project-container {
@@ -313,7 +383,7 @@ hr {
 
 .project-link{
     text-decoration: none;
-    color: rgb(35, 80, 20);
+    color: white;
 }
 
 a {
@@ -335,7 +405,7 @@ a {
 
 .backhome {
     text-decoration: none;
-    color: rgb(35, 80, 20);
+    color: white;
 }
 
 .cad-video {
@@ -344,4 +414,46 @@ a {
     display: center;
     align-items: flex;
     flex-wrap: wrap;
+}
+
+.intro {
+    background: #B7B6ED;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    background: #B7B6ED;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+}
+  
+.intro-text {
+    color: rgb(255, 255, 255);
+    font-family: "Heebo", sans-serif;
+    font-size: 3rem;
+}
+  
+.hide {
+    background: #B7B6ED;
+    overflow: hidden;
+}
+  
+.hide span {
+    transform: translateY(100%);
+    display: inline-block;
+}
+
+.infill{
+    color:#B7B6ED;
 }
