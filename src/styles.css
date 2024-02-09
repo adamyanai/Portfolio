@@ -216,6 +216,16 @@ p6 {
     color: #B7B6ED;
 }
 
+p7 {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
 .subtext {
     font-size: 19px;
     font-weight: 300;
@@ -234,7 +244,7 @@ p6 {
     margin-bottom: 200px;
 }
 
-.button {
+.button2 {
     width: 200px;
     height: 55px;
     border-radius: 50px;
@@ -275,8 +285,8 @@ p6 {
 
 
 .headshot {
-    width: 300px;
-    border-radius: 100px;
+    width: 330px;
+    border-radius: 30px;
     margin-left: 70px;
     margin-top: 30px;
 }
@@ -301,6 +311,20 @@ p6 {
     justify-content: space-around;
     text-align: center;
     margin: 10px;
+}
+
+.maps-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.city {
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .project-card:hover{
