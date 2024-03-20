@@ -1,3 +1,6 @@
+.lang{
+    color: black;
+}
 
 .lang:hover{
     color:#B7B6ED;
@@ -17,7 +20,7 @@
     right: 30px;
     padding: 10px 15px;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     border-radius: 5px;
     border-radius: 1px solid #fff;
     cursor: pointer;
@@ -25,8 +28,8 @@
 }
 
 .scrollTop:hover{
-    background-color: #f7f7f7;
-    color: #000;
+    background-color: #B7B6ED;
+    color: #fff;
 }
 
 /* p {
@@ -53,34 +56,34 @@ transition: 1s ease-out;
 
 body {
     font-family: 'Mukta', sans-serif;
-    background-color: #000000;
+    background-color: #fff;
 }
 
 section {
-    background-color: rgb(0, 0, 0);
+    background-color: #fff;
 }
 
 .hero {
-    background-color: #000000;
+    background-color: #fff;
     height: 100vh;
-    color: rgb(255, 255, 255);
+    color: #000;
     font-size: 40px;
 }
 
 .hero2 {
-    background-color: #000000;
+    background-color: #fff;
     height: 1800px;
     color: #B7B6ED;
 }
 
 .hero3 {
-    background-color: #000000;
+    background-color: #fff;
     height: flex;
     color: #B7B6ED;
 }
 
 footer {
-    background-color: #000000;
+    background-color: #fff;
     color: #B7B6ED;
     text-align: center;
     padding-top: 50px;
@@ -103,6 +106,7 @@ ul {
 li {
     /* width: 200px; */
     text-decoration: none;
+    color: black;
 }
 
 h1 {
@@ -119,7 +123,7 @@ h2 {
 h3 {
     font-size: 38px;
     font-weight: 300;
-    color: white;
+    color: black;
     margin-top: -50px;
 }
 
@@ -143,12 +147,13 @@ h7 {
 
 h8 {
     font-size: 35px;
+    color: #000;
 }
 
 h9 {
     font-size: 38px;
     font-weight: 300;
-    color: white;
+    color: black;
     margin-bottom: -150px;
 }
 
@@ -166,7 +171,7 @@ p {
     margin: 0;
     font-size: 26px;
     font-weight: 300;
-    color: #ffffff;
+    color: #000;
 }
 
 .p2 {
@@ -182,7 +187,7 @@ p3 {
     margin: 0;
     font-size: 26px;
     font-weight: 300;
-    color: #000000;
+    color: #fff;
 }
 
 p31 {
@@ -203,7 +208,7 @@ p5 {
     margin: 0;
     font-size: 15px;
     font-weight: 300;
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 p6 {
@@ -223,7 +228,7 @@ p7 {
     margin: 0;
     font-size: 16px;
     font-weight: 300;
-    color: #ffffff;
+    color: #000;
 }
 
 .subtext {
@@ -242,6 +247,7 @@ p7 {
 .hero-text {
     margin-left: 80px;
     margin-bottom: 200px;
+    color: black;
 }
 
 .button2 {
@@ -398,6 +404,7 @@ p7 {
 hr {
     margin-left: 20px;
     margin-right: 20px;
+    color: black;
 }
 
 .hr2 {
@@ -407,7 +414,7 @@ hr {
 
 .project-link{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 a {
