@@ -448,7 +448,7 @@ a {
 }
 
 .intro {
-    background: #B7B6ED;
+    background: #000000;
     position: fixed;
     top: 0;
     left: 0;
@@ -460,7 +460,7 @@ a {
 }
 
 .slider {
-    background: #B7B6ED;
+    background: #000000;
     position: fixed;
     top: 0;
     left: 0;
@@ -476,7 +476,7 @@ a {
 }
   
 .hide {
-    background: #B7B6ED;
+    background: #000000;
     overflow: hidden;
 }
   
