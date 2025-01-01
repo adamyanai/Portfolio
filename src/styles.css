@@ -283,12 +283,30 @@ p7 {
 }
 
 .sub-section-alternative {
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 40px;
 }
 
+.sub-section-alternative2 {
+    padding-left: 20px;
+    padding-right: 60px;
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
 .headshot {
     width: 330px;
@@ -313,7 +331,7 @@ p7 {
     width: 400px;
     height: 600px;
     border-radius: 50px;
-    box-shadow: 5px 5px 200px #B7B6ED;
+    box-shadow: 5px 5px 50px #B7B6ED;
     justify-content: space-around;
     text-align: center;
     margin: 10px;
@@ -488,3 +506,30 @@ a {
 .infill{
     color:#B7B6ED;
 }
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 15px; /* Space between items */
+    padding: 20px; /* Padding inside the gallery */
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile devices */
+}
+
+/* Gallery Item Styling */
+.gallery-item img {
+    width: 300px; /* Adjust width for all images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px #B7B6ED; /* Enhanced shadow on hover */
+}
+
