@@ -396,6 +396,19 @@ p7 {
         align-items: center;
         flex-wrap: wrap;
     }
+    h1 {
+        font-size: 90px;
+        margin: 0;
+    }
+    p {
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        margin: 0;
+        font-size: 38px;
+        font-weight: 400;
+        color: #000;
+    }
 }
 
 .logo-video {
