@@ -409,6 +409,15 @@ p7 {
         font-weight: 400;
         color: #000;
     }
+    p6 {
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        margin: 0;
+        font-size: 45px;
+        font-weight: 300;
+        color: #B7B6ED;
+    }
 }
 
 .logo-video {
