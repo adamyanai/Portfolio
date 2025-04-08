@@ -191,6 +191,7 @@ body {
     border: none;
     outline: none;
     box-shadow: none;
+    border-radius: 20px;
 }
 
 .scroll-indicator {
@@ -1346,9 +1347,12 @@ a {
     width: 100%;
 }
 
-.project-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    order: -1;
 }
 
 .project-item img {
@@ -1388,7 +1392,8 @@ a {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    order: -1;
 }
 
 .project-links a {
