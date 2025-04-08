@@ -45,6 +45,15 @@ body {
     transition: all 0.3s ease;
 }
 
+.nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  .nav-brand img {
+    height: 40px;
+  }
+  
+
 .nav-brand:hover {
     color: var(--text-color);
     transform: scale(1.1);
@@ -179,7 +188,9 @@ body {
 .logo {
     max-width: 100%;
     height: auto;
-    animation: float 6s ease-in-out infinite;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .scroll-indicator {
