@@ -229,6 +229,7 @@ body {
 .about {
     padding: 6rem 2rem;
     background-color: #f8f8f8;
+    scroll-margin-top: 80px;
 }
 
 .about h2 {
@@ -268,6 +269,7 @@ body {
 /* Work Section */
 .work {
     padding: 6rem 2rem;
+    scroll-margin-top: 80px;
 }
 
 .section-description {
@@ -336,6 +338,7 @@ body {
 .art {
     padding: 6rem 2rem;
     background-color: #f8f8f8;
+    scroll-margin-top: 80px;
 }
 
 .art h2 {
@@ -725,6 +728,7 @@ h3 {
 
 section {
     background-color: #fff;
+    scroll-margin-top: 100px;
 }
 
 .hero2 {
