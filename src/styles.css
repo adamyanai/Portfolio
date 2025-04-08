@@ -578,41 +578,31 @@ h3 {
     }
 
     .project-item img {
-        max-width: 220px;
-        width: 85%;
+        max-width: 280px;
+        width: 90%;
     }
 
     .expics {
-        max-width: 300px;
-        width: 85%;
+        max-width: 280px;
+        width: 90%;
     }
 
     .project-item img {
-        height: 180px;
+        height: 220px;
     }
 
     .expics {
-        height: 180px;
+        height: 220px;
     }
 
     h6 {
-        font-size: 40px;
-        margin-bottom: 15px;
-        background: linear-gradient(45deg, var(--text-color), var(--primary-color));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-        width: 100%;
+        font-size: 32px;
+        margin-bottom: 12px;
     }
 
     h9 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        background: linear-gradient(45deg, var(--text-color), var(--primary-color));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 18px;
+        margin-bottom: 12px;
     }
 
     .project-container {
@@ -666,39 +656,31 @@ h3 {
     }
 
     .project-item img {
-        max-width: 200px;
-        width: 80%;
+        max-width: 260px;
+        width: 85%;
     }
 
     .expics {
-        max-width: 250px;
-        width: 80%;
+        max-width: 260px;
+        width: 85%;
     }
 
     .project-item img {
-        height: 160px;
+        height: 200px;
     }
 
     .expics {
-        height: 160px;
+        height: 200px;
     }
 
     h6 {
-        font-size: 32px;
-        margin-bottom: 12px;
-        background: linear-gradient(45deg, var(--text-color), var(--primary-color));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 28px;
+        margin-bottom: 10px;
     }
 
     h9 {
-        font-size: 20px;
-        margin-bottom: 12px;
-        background: linear-gradient(45deg, var(--text-color), var(--primary-color));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 
     .project-container {
@@ -1427,8 +1409,8 @@ a {
     }
     
     .project-item img {
-        max-width: 220px;
-        width: 85%;
+        max-width: 280px;
+        width: 90%;
     }
 }
 
@@ -1459,8 +1441,8 @@ a {
     }
     
     .project-item img {
-        max-width: 200px;
-        width: 80%;
+        max-width: 260px;
+        width: 85%;
     }
 }
 
