@@ -452,6 +452,9 @@ h3 {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    body {
+        background-color: #fff; /* Ensure white background */
+    }
     .hero-content {
         flex-direction: column;
         text-align: center;
@@ -493,7 +496,7 @@ h3 {
     }
 
     .title-container p {
-        font-size: 1rem;
+        font-size: 0.7rem;
     }
 
     .projects-grid {
@@ -615,6 +618,9 @@ h3 {
 }
 
 @media (max-width: 480px) {
+    body {
+        background-color: #fff; /* Ensure white background */
+    }
     .name {
         font-size: 2rem;
     }
@@ -624,7 +630,7 @@ h3 {
     }
 
     .title-container p {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
     }
 
     .gallery-item img {
