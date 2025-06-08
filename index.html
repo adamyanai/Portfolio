@@ -13,6 +13,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #FFFFFF;
             color: #1a1a2e;
+            -webkit-tap-highlight-color: transparent; /* Disable tap highlight on iOS */
         }
         canvas { display: block; width: 100vw; height: 100vh; }
 
@@ -104,6 +105,7 @@
             padding: 0 10px;
             border-bottom: 1px solid #ccc;
             flex-shrink: 0;
+            touch-action: none; /* Prevent scrolling on touch devices when dragging header */
         }
         .popup-controls {
             display: flex;
@@ -125,6 +127,9 @@
             font-weight: 500;
             color: #333;
             margin-right: 36px; /* Offset for controls */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         .popup-content {
@@ -164,6 +169,43 @@
         #popup-links a:hover img {
             transform: scale(1.1);
             opacity: 1;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .slider-menu {
+                padding: 5px;
+                border-radius: 10px;
+            }
+            .slider-menu-button {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            .vertical-menu {
+                gap: 20px;
+            }
+            .vertical-menu a {
+                font-size: 0.8em;
+            }
+            .popup-window {
+                width: 90vw;
+                height: 75vh;
+                max-width: none;
+                min-width: 0;
+                min-height: 0;
+            }
+            #popup-title {
+                font-size: 0.8em;
+            }
+            .popup-content {
+                padding: 15px;
+            }
+            #popup-description {
+                font-size: 0.85em;
+            }
+            #popup-links a img {
+                height: 24px;
+            }
         }
     </style>
 </head>
@@ -215,6 +257,10 @@
         let mouseDownX = 0, mouseDownY = 0;
         let hasDragged = false;
         const dragThreshold = 5; // pixels
+        
+        // --- TOUCH GLOBALS ---
+        let initialPinchDistance = 0;
+
 
         // --- INITIALIZATION ---
         function init() {
@@ -258,13 +304,19 @@
             });
 
 
-            // Event Listeners
+            // --- EVENT LISTENERS ---
+            // Mouse Listeners
             renderer.domElement.addEventListener('mousedown', onMouseDown);
             renderer.domElement.addEventListener('mouseup', onMouseUp);
             renderer.domElement.addEventListener('mousemove', onMouseMove);
             renderer.domElement.addEventListener('wheel', onMouseWheel);
             renderer.domElement.addEventListener('mouseleave', onMouseLeave);
-            renderer.domElement.addEventListener('click', onCanvasClick);
+            
+            // Touch Listeners
+            renderer.domElement.addEventListener('touchstart', onTouchStart, { passive: false });
+            renderer.domElement.addEventListener('touchmove', onTouchMove, { passive: false });
+            renderer.domElement.addEventListener('touchend', onTouchEnd);
+
             window.addEventListener('resize', onWindowResize);
 
             // Setup UI
@@ -458,7 +510,8 @@
             });
             renderer.render(scene, camera);
         }
-
+        
+        // --- MOUSE CONTROLS ---
         function onMouseDown(event) {
             if (event.target.closest('.popup-window')) return;
             isDragging = true;
@@ -468,14 +521,6 @@
             mouseDownX = event.clientX;
             mouseDownY = event.clientY;
             renderer.domElement.style.cursor = 'grabbing';
-        }
-
-        function onMouseUp(event) {
-            if (!hasDragged) {
-                onCanvasClick(event);
-            }
-            isDragging = false;
-            renderer.domElement.style.cursor = 'grab';
         }
 
         function onMouseMove(event) {
@@ -497,6 +542,14 @@
                 previousMouseY = event.clientY;
             }
         }
+        
+        function onMouseUp(event) {
+            if (!hasDragged) {
+                handleTap(event.clientX, event.clientY);
+            }
+            isDragging = false;
+            renderer.domElement.style.cursor = 'grab';
+        }
 
         function onMouseWheel(event) {
             event.preventDefault();
@@ -504,23 +557,85 @@
             camera.position.z = Math.max(1.5, Math.min(10, camera.position.z));
         }
 
-        function onCanvasClick(event) {
-            if (hasDragged) return;
+        function onMouseLeave() {
+            isDragging = false;
+            renderer.domElement.style.cursor = 'grab';
+        }
 
+        // --- TOUCH CONTROLS ---
+        function onTouchStart(event) {
+            if (event.target.closest('.popup-window')) return;
+            
+            event.preventDefault(); // Prevent default touch actions like scrolling
+
+            isDragging = true;
+            hasDragged = false;
+
+            const touch = event.touches[0];
+            previousMouseX = touch.clientX;
+            previousMouseY = touch.clientY;
+            mouseDownX = touch.clientX;
+            mouseDownY = touch.clientY;
+
+            if (event.touches.length === 2) {
+                initialPinchDistance = getPinchDistance(event.touches);
+            }
+        }
+
+        function onTouchMove(event) {
+            if (!isDragging) return;
+            event.preventDefault();
+
+            const touch = event.touches[0];
+            const deltaX = Math.abs(touch.clientX - mouseDownX);
+            const deltaY = Math.abs(touch.clientY - mouseDownY);
+            if (deltaX > dragThreshold || deltaY > dragThreshold) {
+                hasDragged = true;
+            }
+
+            if (event.touches.length === 1 && hasDragged) { // Single finger drag for rotation
+                const moveDeltaX = touch.clientX - previousMouseX;
+                const moveDeltaY = touch.clientY - previousMouseY;
+                scene.rotation.y += moveDeltaX * rotationSpeed * 1.5; // Slightly increase speed for touch
+                const newRotationX = scene.rotation.x + moveDeltaY * rotationSpeed * 1.5;
+                scene.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, newRotationX));
+                previousMouseX = touch.clientX;
+                previousMouseY = touch.clientY;
+            } else if (event.touches.length === 2) { // Two finger pinch for zoom
+                 const currentPinchDistance = getPinchDistance(event.touches);
+                 const deltaDistance = initialPinchDistance - currentPinchDistance;
+                 camera.position.z += deltaDistance * zoomSpeed * 0.1;
+                 camera.position.z = Math.max(1.5, Math.min(10, camera.position.z));
+                 initialPinchDistance = currentPinchDistance; // Update for continuous zoom
+            }
+        }
+
+        function onTouchEnd(event) {
+             if (!hasDragged && event.changedTouches.length > 0) {
+                 const touch = event.changedTouches[0];
+                 handleTap(touch.clientX, touch.clientY);
+             }
+             isDragging = false;
+             initialPinchDistance = 0;
+        }
+        
+        function getPinchDistance(touches) {
+            const dx = touches[0].clientX - touches[1].clientX;
+            const dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        // --- SHARED CONTROLS LOGIC ---
+        function handleTap(clientX, clientY) {
             if (projectGroup.visible) {
-                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                mouse.x = (clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(clientY / window.innerHeight) * 2 + 1;
                 raycaster.setFromCamera(mouse, camera);
                 const intersects = raycaster.intersectObjects(projectGroup.children);
                 if (intersects.length > 0) {
                     showProjectPopup(intersects[0].object.userData);
                 }
             }
-        }
-
-        function onMouseLeave() {
-            isDragging = false;
-            renderer.domElement.style.cursor = 'grab';
         }
 
         function onWindowResize() {
@@ -609,24 +724,38 @@
                 popup.style.display = 'none';
             });
 
-            header.addEventListener('mousedown', (e) => {
+            // --- Unified Dragging for Popup Header (Mouse & Touch) ---
+            const startDrag = (e) => {
                 isPopupDragging = true;
-                offsetX = e.clientX - popup.offsetLeft;
-                offsetY = e.clientY - popup.offsetTop;
-                document.body.style.userSelect = 'none';
-            });
+                const clientX = e.clientX ?? e.touches[0].clientX;
+                const clientY = e.clientY ?? e.touches[0].clientY;
+                offsetX = clientX - popup.offsetLeft;
+                offsetY = clientY - popup.offsetTop;
+                document.body.style.userSelect = 'none'; // Prevent text selection
+            };
 
-            document.addEventListener('mouseup', () => {
-                isPopupDragging = false;
-                document.body.style.userSelect = 'auto';
-            });
-
-            document.addEventListener('mousemove', (e) => {
+            const drag = (e) => {
                 if (!isPopupDragging) return;
                 e.preventDefault();
-                popup.style.left = `${e.clientX - offsetX}px`;
-                popup.style.top = `${e.clientY - offsetY}px`;
-            });
+                const clientX = e.clientX ?? e.touches[0].clientX;
+                const clientY = e.clientY ?? e.touches[0].clientY;
+                popup.style.left = `${clientX - offsetX}px`;
+                popup.style.top = `${clientY - offsetY}px`;
+                popup.style.transform = 'translate(0, 0)'; // Override centered transform
+            };
+
+            const endDrag = () => {
+                isPopupDragging = false;
+                document.body.style.userSelect = 'auto';
+            };
+
+            header.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', endDrag);
+
+            header.addEventListener('touchstart', startDrag, { passive: false });
+            document.addEventListener('touchmove', drag, { passive: false });
+            document.addEventListener('touchend', endDrag);
         }
 
         function showProjectPopup(data) {
@@ -643,7 +772,6 @@
             // Clear previous links and populate new ones
             popupLinksContainer.innerHTML = '';
             if (data.links) {
-                // This map now contains the image data directly, so no external files are needed.
                 const logoMap = {
                     github: 'images/icons/github.png',
                     pdf: 'images/icons/pdf.png',
