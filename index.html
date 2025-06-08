@@ -1,419 +1,689 @@
-<!DOCTYPE html> 
-<html>
-    <head>
-        <link rel="stylesheet" href="src/styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <title>Portfolio</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="theme-color" content="#fff">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <script src="src/scroll-animations.js" defer></script>
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="nav-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <img src="src/images/logotop.png" alt="Logo" />
-              </div>              
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#art" class="nav-link">Art</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.instagram.com/adamyanai/" class="social" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/adamyanai" class="social" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://github.com/adamyanai" class="social" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
-                <a href="src/pdfs/resume.pdf" class="social" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m9 16v-2H6v2h9m3-4v-2H6v2h12z"/></svg>
-                </a>
-            </div>
-        </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Yanai</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1a1a2e;
+        }
+        canvas { display: block; width: 100vw; height: 100vh; }
 
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-title-container">
-                        <h1 class="name">Adam Yanai</h1>
-                        <div class="title-container">
-                            <p>Computer Engineering Student</p>
-                            <p>@</p>
-                            <p>Boston University</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- <img class="logo" src="src/images/logo2.png" alt="Adam Yanai's Logo"/> -->
-                    <video class="logo" autoplay loop muted playsinline webkit-playsinline style="border: none; outline: none; box-shadow: none;">
-                        <source src="src/images/logo.mov" type="video/quicktime">
-                        <source src="src/images/logo.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="mouse"></div>
-                <span>Scroll to explore</span>
-            </div>
-        </section>
+        .vertical-menu {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            z-index: 10;
+        }
+        .vertical-menu a {
+            background-color: transparent;
+            color: #1a1a2e;
+            padding: 0;
+            border-radius: 0;
+            text-decoration: none;
+            font-size: 0.9em;
+            text-align: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-shadow: none;
+            border: none;
+        }
+        .vertical-menu a:hover {
+            color: #888888;
+            transform: translateY(-3px);
+        }
 
-        <section id="about" class="about">
-            <div class="about-content reveal">
-                <div class="about-text reveal-left">
-                    <h2>Hello, I'm Adam.</h2>
-                    <p>I'm a student at Boston University studying computer engineering. Coming from an artistic background, my passion for engineering stems from the excitement of the creative process. I love to explore new projects through unique approaches and interdisciplinary collaborations. I am experienced in the use of various CAD software, programming languages, artistic mediums, and architectural design techniques.</p>
-                </div>
-                <div class="about-image reveal-right">
-                    <img class="headshot" src="src/images/bereal.JPG" alt="Adam Yanai's BeReal"/>
-                </div>
-            </div>
-        </section>
+        .slider-menu {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        .slider-menu-button {
+            background-color: transparent;
+            color: #1a1a2e;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .slider-menu-button.active {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #1a1a2e;
+        }
+        .slider-menu-button:not(.active):hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
 
-        <section id="work" class="work">
-            <h2>Here's some of my work...</h2>
-            <p class="section-description">A set of selected projects - both completed and ongoing - across a range of disciplines. I'm constantly seeking opportunities to expand my skill set with new experiences.</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <span class="project-emoji">👾</span>
-                        <h3>Programming & Data</h3>
-                        <p class="subtext">My programming experience includes projects in system design using Java and Python, as well as data-oriented research through MATLAB.</p>
-                        <a href="code.html" class="project-link">View Projects</a>
-                    </div>
-                </div>
+        /* Popup Window Styles */
+        .popup-window {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            max-width: 600px;
+            min-width: 300px;
+            height: 60vh;
+            min-height: 400px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            resize: both;
+            overflow: hidden;
+        }
+        .popup-header {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            cursor: move;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            border-bottom: 1px solid #ccc;
+            flex-shrink: 0;
+        }
+        .popup-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .popup-controls .control-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .control-btn.close { background-color: #ff5f56; cursor: pointer; }
+        .control-btn.minimize { background-color: #ffbd2e; }
+        .control-btn.maximize { background-color: #27c93f; }
 
-                <div class="project-card">
-                    <div class="project-content">
-                        <span class="project-emoji">👨‍💻</span>
-                        <h3>Design & Exploration</h3>
-                        <p class="subtext">Product design - an inherent aspect of the innovation process - pushes me to structure my ideas and enable collaborations across disciplines.</p>
-                        <a href="explore.html" class="project-link">View Projects</a>
-                    </div>
-                </div>
+        #popup-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #333;
+            margin-right: 36px; /* Offset for controls */
+        }
 
-                <div class="project-card">
-                    <div class="project-content">
-                        <span class="project-emoji">⚙️</span>
-                        <h3>Machining & Robotics</h3>
-                        <p class="subtext">As a lab leader at the BU Engineering Product Innovation Center and a robotics enthusiast, I have designed and created an array of varying parts.</p>
-                        <a href="machine.html" class="project-link">View Projects</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        .popup-content {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #popup-image {
+            width: 100%;
+            max-height: 50%;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        #popup-description {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        #popup-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding-top: 10px;
+            flex-shrink: 0;
+        }
+        #popup-links a img {
+            height: 28px;
+            width: auto;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+            opacity: 0.8;
+        }
+        #popup-links a:hover img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-menu">
+        <button id="projectsButton" class="slider-menu-button">PROJECTS</button>
+        <button id="artButton" class="slider-menu-button">ART</button>
+        <button id="aboutButton" class="slider-menu-button">ABOUT</button>
+    </div>
 
-        <section id="art" class="art">
-            <h2>And here's some of my art...</h2>
-            <p class="section-description">Included are works in fine arts and photography, most of which created during my time as a fine arts student at LaGuardia High School.</p>
-            
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="src/images/mountainart.png" alt="Mountain">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/archart.png" alt="Arch">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/piecesart.png" alt="Collage">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/penart.png" alt="Pen & Ink">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/horseart.png" alt="Horse">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/showcaseart.png" alt="Showcase">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/paintingart.png" alt="Painting">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/boxesart.png" alt="Boxes">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/boxes2art.png" alt="Boxes2">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/handsart.png" alt="Hands">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/projectart.png" alt="Project">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/magazineart.png" alt="Magazine">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/selfart.png" alt="Self">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/chairplanart.png" alt="Chair Plan">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/chairart.png" alt="Chair">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/carart.png" alt="Car">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/buildart.png" alt="Building">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/celticsart.png" alt="Celtics">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/mountainsart.png" alt="Mountains">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/bikeart.png" alt="Bike">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/bottlesart.png" alt="Bottles">
-                </div>
-            </div>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="src/images/elephant.png" alt="Elephant">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/protest.png" alt="Protest">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/concert.png" alt="Concert">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/paris.png" alt="Paris">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/paris2.png" alt="Paris2">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/planes.png" alt="Planes">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/car.png" alt="Car">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/tents.png" alt="Tets">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/windows.png" alt="Windows">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/build.png" alt="Building">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/bike.png" alt="Bike">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/intersect.png" alt="Intersect">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/sketch.png" alt="Sketch">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/hotel.png" alt="Hotel">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/nyc.png" alt="NYC">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/africa.png" alt="Africa">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/arch.png" alt="Architecture">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/vaca.png" alt="Celtics">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/airport.png" alt="Mountains">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/sf.png" alt="Bike">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/boats.png" alt="Bottles">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/glide.png" alt="Glide">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/glide2.png" alt="Glide2">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/glide3.png" alt="Glide3">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/glide.png" alt="Glide4">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/sunset.png" alt="Sunset">
-                </div>
-                <div class="gallery-item">
-                    <img src="src/images/celtics.png" alt="Celtics">
-                </div>
-            </div>
-        </section>
-        <style>
-            form {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                max-width: 700px;
-                width: 100%;
-            }
-            
-            input,
-            textarea {
-                width: 100%;
-                background: transparent;
-                padding: 20px;
-                outline: none;
-            }
-            
-            input:focus,
-            textarea:focus {
-                outline: none;
-                border-color: #B7B6ED;
-            }
+    <div class="vertical-menu">
+        <a href="https://www.instagram.com/adamyanai/" target="_blank">IG</a>
+        <a href="https://www.linkedin.com/in/adamyanai/" target="_blank">LI</a>
+        <a href="https://github.com/adamyanai" target="_blank">GH</a>
+        <a href="pdfs/resume.pdf" target="_blank">CV</a>
+    </div>
 
-            button {
-                margin-left: auto;
-                padding: 14px 28px;
-                background-color: transparent;
-            }
-
-            button:hover {
-                background-color: #f7f7f7;
-                color: #000;
-                border-color: #B7B6ED;
-            }
-
-            input, 
-            textarea, 
-            button {
-                border-radius: 20px;
-                border: 3px solid #000;
-                font-size: 20px;
-                color: black;
-            }
-        </style>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        
-        <center><h2>Where you're most likely to bump into me...</h2></center>
-        <div class="maps-container">
-            <div class="map-wrapper">
-                <iframe class="city" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d377651.24203813274!2d-71.59408933663816!3d42.31265946341851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3652d0d3d311b%3A0x787cbf240162e8a0!2sBoston%2C%20MA!5e0!3m2!1sen!2sus!4v1707201039410!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="popup-window" class="popup-window">
+        <div class="popup-header" id="popup-header">
+            <div class="popup-controls">
+                <span class="control-btn close" id="popup-close"></span>
+                <span class="control-btn minimize"></span>
+                <span class="control-btn maximize"></span>
             </div>
-            <div class="map-wrapper">
-                <iframe class="city" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387194.06216367584!2d-74.30932114178677!3d40.69701930501454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1707201100527!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="map-wrapper">
-                <iframe class="city" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108169.9218576244!2d34.7148449875601!3d32.08790483200671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca6193b7c1f%3A0xc1fb72a2c0963f90!2sTel%20Aviv-Yafo%2C%20Israel!5e0!3m2!1sen!2sus!4v1707201008326!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="map-wrapper">
-                <iframe class="city" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424146.1024415476!2d150.6517916!3d-33.8688197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1707201200000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <span id="popup-title">Project Title</span>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <center><form method="POST" action="https://formsubmit.co/adam.yanai@gmail.com">
-            <h2>Let's talk!</h2>
-            <input name="name" type="text" placeholder="Name" required/>
-            <input name="email" type="email" placeholder="Email" required/>
-            <textarea name="message" placeholder="Message"></textarea>
-            <button type="submit">Send</button>
-        </form></center>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <center><p7>Thanks for the visit :) Let's do that again!</p7></center>
-        <br/>
-        <div class="intro">
-            <div class="intro-text">
-              <h1 class="hide">
-                <span class="text">Engineer.</span>
-              </h1>
-              <h1 class="hide">
-                <span class="text">Designer.</span>
-              </h1>
-              <h1 class="hide">
-                <span class="text">Creator.</span>
-              </h1>
-            </div>
-          </div>
-        <div class="slider"></div>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
-            integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
-            crossorigin="anonymous"
-        ></script>
-        <script src="./anim.js"></script>
-        <script>
-            // New cursor-following gradient effect
-            document.addEventListener('DOMContentLoaded', function() {
-                const heroTitleContainer = document.querySelector('.hero-title-container');
-                
-                // Create a new approach for the gradient effect
-                function applyGradientEffect(element, e) {
-                    // Get the position of the cursor relative to the container
-                    const rect = element.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    // Create a radial gradient that follows the cursor
-                    const gradient = `radial-gradient(circle 200px at ${x}px ${y}px, var(--primary-color) 0%, var(--text-color) 60%)`;
-                    
-                    // Apply the gradient ONLY to the name element
-                    const nameElement = element.querySelector('.name');
-                    if (nameElement) {
-                        // Apply the gradient as a background
-                        nameElement.style.background = gradient;
-                        nameElement.style.backgroundClip = 'text';
-                        nameElement.style.webkitBackgroundClip = 'text';
-                        nameElement.style.webkitTextFillColor = 'transparent';
-                        nameElement.style.color = 'transparent'; // Ensure text is transparent
-                    }
-                }
-                
-                // Reset the gradient when the cursor leaves
-                function resetGradient(element) {
-                    // Reset ONLY the name element
-                    const nameElement = element.querySelector('.name');
-                    if (nameElement) {
-                        // Reset to the default text color
-                        nameElement.style.background = 'none';
-                        nameElement.style.webkitTextFillColor = 'var(--text-color)';
-                        nameElement.style.color = 'var(--text-color)'; // Reset color as well
-                    }
-                }
-                
-                // Add event listeners for the gradient effect
-                heroTitleContainer.addEventListener('mousemove', function(e) {
-                    applyGradientEffect(heroTitleContainer, e);
-                });
+        <div class="popup-content">
+            <img id="popup-image" src="" alt="Project Image">
+            <p id="popup-description">Project description goes here.</p>
+            <div id="popup-links"></div>
+        </div>
+    </div>
 
-                heroTitleContainer.addEventListener('mouseleave', function() {
-                    resetGradient(heroTitleContainer);
+
+    <script>
+        // --- THREE.JS GLOBALS ---
+        let scene, camera, renderer;
+        let artGroup, projectGroup, aboutGroup;
+        let isDragging = false;
+        let previousMouseX = 0, previousMouseY = 0;
+        let rotationSpeed = 0.005;
+        let zoomSpeed = 0.1;
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        // --- POPUP & DRAG GLOBALS ---
+        let popup, header, isPopupDragging = false;
+        let offsetX, offsetY;
+        let mouseDownX = 0, mouseDownY = 0;
+        let hasDragged = false;
+        const dragThreshold = 5; // pixels
+
+        // --- INITIALIZATION ---
+        function init() {
+            // Scene, Camera, Renderer Setup
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+            renderer.setClearColor(0xFFFFFF);
+
+            // Lighting
+            scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1, 1).normalize();
+            scene.add(directionalLight);
+
+            // Content Groups
+            artGroup = new THREE.Group();
+            projectGroup = new THREE.Group();
+            aboutGroup = new THREE.Group();
+            scene.add(artGroup, projectGroup, aboutGroup);
+
+            // Populate Globes
+            addPhotosToGlobe();
+            addProjectsToGlobe();
+            addAboutContent();
+
+            // Initial Visibility
+            artGroup.visible = false;
+            projectGroup.visible = false;
+            aboutGroup.visible = false;
+
+             [artGroup, projectGroup, aboutGroup].forEach(group => {
+                group.traverse(obj => {
+                    if (obj.isMesh && obj.material) {
+                        obj.material.opacity = 0;
+                    }
                 });
             });
-        </script>
-    </body> 
+
+
+            // Event Listeners
+            renderer.domElement.addEventListener('mousedown', onMouseDown);
+            renderer.domElement.addEventListener('mouseup', onMouseUp);
+            renderer.domElement.addEventListener('mousemove', onMouseMove);
+            renderer.domElement.addEventListener('wheel', onMouseWheel);
+            renderer.domElement.addEventListener('mouseleave', onMouseLeave);
+            renderer.domElement.addEventListener('click', onCanvasClick);
+            window.addEventListener('resize', onWindowResize);
+
+            // Setup UI
+            setupSliderMenu();
+            setupPopupWindow();
+        }
+
+        // --- CONTENT CREATION ---
+
+        function addImagesToGroup(group, items) {
+            const globeRadius = 3;
+            const textureLoader = new THREE.TextureLoader();
+
+            items.forEach((item, i) => {
+                textureLoader.load(item.imageUrl, (texture) => {
+                    const aspectRatio = texture.image.width / texture.image.height;
+                    const planeHeight = item.baseSize;
+                    const planeWidth = item.baseSize * aspectRatio;
+
+                    const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight);
+                    const material = new THREE.MeshBasicMaterial({
+                        map: texture,
+                        side: THREE.DoubleSide,
+                        transparent: true,
+                        opacity: 0
+                    });
+                    const mesh = new THREE.Mesh(geometry, material);
+
+                    mesh.userData = item;
+
+                    const phi = Math.acos(-1 + (2 * i) / items.length);
+                    const theta = Math.sqrt(items.length * Math.PI) * phi;
+                    mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
+
+                    group.add(mesh);
+                }, undefined, (err) => {
+                    console.error('An error happened loading the texture:', item.imageUrl, err);
+                });
+            });
+        }
+
+        function addPhotosToGlobe() {
+            const artItems = [
+                "images/africa.png", "images/airport.png", "images/arch.png", "images/archart.png",
+                "images/bike.png", "images/intersect.png", "images/bikeart.png", "images/boats.png",
+                "images/bottlesart.png", "images/boxes2art.png", "images/boxesart.png", "images/build.png",
+                "images/buildart.png", "images/car.png", "images/carart.png", "images/celtics.png",
+                "images/celticsart.png", "images/chairart.png", "images/chairplanart.png", "images/concert.png",
+                "images/elephant.png", "images/glide.png", "images/glide2.png", "images/glide3.png",
+                "images/glide4.png", "images/handsart.png", "images/horseart.png", "images/hotel.png",
+                "images/magazineart.png", "images/mountainart.png", "images/mountainsart.png", "images/nyc.png",
+                "images/paintingart.png", "images/paris.png", "images/paris2.png", "images/penart.png",
+                "images/piecesart.png", "images/planes.png", "images/projectart.png", "images/protest.png",
+                "images/selfart.png", "images/sf.png", "images/showcaseart.png", "images/sketch.png",
+                "images/sunset.png", "images/tents.png", "images/vaca.png", "images/windows.png",
+                "images/abercrombie.png", "images/bball.png", "images/bondi.png", "images/breakfast.png",
+                "images/caterpillar.png", "images/coolrocks.png", "images/dogs.png", "images/drumoncar.png",
+                "images/figureeight.png", "images/figuresjoseph.png", "images/fromhike.png", "images/fromhike2.png",
+                "images/fromhike3.png", "images/fromhike4.png", "images/fromplane.png", "images/fromplaneref.png",
+                "images/goingout.png", "images/goingout2.png", "images/japan1.png", "images/japan2.png",
+                "images/japan3.png", "images/japan4.png", "images/japan5.png", "images/japan6.png",
+                "images/japan7.png", "images/japan8.png", "images/japan9.png", "images/japan10.png",
+                "images/japan11.png", "images/japan12.png", "images/japan13.png", "images/japan14.png",
+                "images/japan15.png", "images/japan16.png", "images/japan17.png", "images/japan18.png",
+                "images/japan19.png", "images/japan20.png", "images/jimmysrooftop.png", "images/josephdrone.png",
+                "images/lanterns.png", "images/muginwindow.png", "images/nicecar.png", "images/nicerock.png",
+                "images/operabar.png", "images/operahouse.png", "images/palmer.png", "images/pizzaplace.png",
+                "images/rockforms.png", "images/rocksonbeach.png", "images/shanghai.png", "images/shanghai2.png",
+                "images/shanghai3.png", "images/shanghai4.png", "images/shanghai5.png", "images/shanghai6.png",
+                "images/shanghai7.png", "images/shanghai8.png", "images/shanghai9.png", "images/shanghai10.png",
+                "images/shanghai11.png", "images/shanghai12.png", "images/shanghai13.png", "images/sydneyharbor.png",
+                "images/tobeach.png", "images/treeindark.png", "images/weirdbird.png", "images/wowbeach.png"
+            ].map(url => ({ imageUrl: url, baseSize: 0.7 }));
+            addImagesToGroup(artGroup, artItems);
+        }
+
+        function addProjectsToGlobe() {
+            const projectItems = [
+                { title: "InView.ai - Face Detection Web App", imageUrl: "images/ec327.png", description: "For a software engineering course, my team and I created a web application that used the OpenCV library to detect faces. I was in charge of developing the entirety of the frontend, as well as incorporating our python script for face detection into the Flask framework to ensure that it worked seamlessly with the interface. Access the Github repository of the code and demo video by clicking on the Github and movie logos below.", baseSize: 0.8, links: { github: 'https://github.com/adamyanai/InView.ai-Face-Detection-Web-App', video: 'videos/inview.mp4' } },
+                { title: "Countdown Timer: Verilog and FPGA", imageUrl: "images/ec311.png", description: "I was able to grow my range of coding abilities through a logic design course in which I learned how to program hardware with Verilog and implement it by using FPGA boards. This project for the course involved creating a countdown timer that converted binary inputs to decimal values in minute and second format, as shown above. Access the Github repository of the code and demo video by clicking on the Github and movie logos below.", baseSize: 0.8, links: { github: 'https://github.com/adamyanai/Countdown-Timer-w-FPGA-Integration', video: 'videos/ec311.mp4' } },
+                { title: "Study of Correlation Between Human Development Index and Obesity Rates", imageUrl: "images/ek125c.png", description: "A highly impactful programming experience was a MATLAB-integrated research project for a programming course. The project was group-based, and I was responsible for the entirety of the coding. Access the full project report and the Github repository of the code by clicking on the PDF and Github logos below.", baseSize: 0.8, links: { pdf: 'pdfs/ek125.pdf', github: 'https://github.com/adamyanai/HDI-Data-Study' } },
+                { title: "Computerized Truss Analysis", imageUrl: "images/truss.png", description: "Another impactful experience has been a portion of a project for a mechanics course in which I created a MATLAB script to analyze the internal forces of a truss design and approximate production costs based on the members and applied loads. This project was also group-based, and I was again responsible for the entirety of the coding. Access the full project report and the Github repository of the code by clicking on the PDF and Github logos below.", baseSize: 0.8, links: { pdf: 'pdfs/ek301.pdf', github: 'https://github.com/adamyanai/Truss-Design-Analysis' } },
+                { title: "This Portfolio Website!", imageUrl: "images/atm.png", description: "I programmed this site using HTML, CSS, and JavaScript. Access the Github repository of the code by clicking on the Github logo below.", baseSize: 0.8, links: { github: 'https://github.com/adamyanai/Portfolio' } },
+                { title: "Applications of Artificial Intelligence in Creative Problem Solving", imageUrl: "images/lscp.png", description: "I've explored the uses of Artificial Intelligence through a project about the creative problem-solving abilities of ChatGPT. I conducted a study to test ChatGPT's creative problem-solving abilities and presented the findings at the LSC 2023 Conference in Institut des Hautes Études Scientifiques (IHES) in Bures-sur-Yvette, France. Access the full project poster by clicking on the PDF logo below.", baseSize: 0.8, links: { pdf: 'pdfs/lsc.pdf' } },
+                { title: "Stud. - Swipe, Study, Succeed.", imageUrl: "images/studlogo.png", description: "The key component of a business innovation course was a semester-long group project. Tasked with developing a viable business plan for a product, my team and I created 'Stud.', an app that facilitates finding study buddies and studying efficiently, similarly to how Tinder facilitates dating. Since the product idea was mine, I took responsibility for much of the project and led my team to place first (out of eight teams) in the final pitch competition. Access the slide deck and business plan by clicking on the PDF logos below.", baseSize: 0.8, links: { pdf1: 'pdfs/studslides.pdf', pdf2: 'pdfs/studreport.pdf' } },
+                { title: "Temperature Monitor", imageUrl: "images/ek131b.png", description: "The following was another semester long project for a hands-on engineering course which focused on foundational engineering concepts and the importance of the design process. The goal of the project was to design and develop a digital thermometer through CAD modeling & 3D printing, circuit planning, soldering, and programming. Access the some project visuals by clicking on the PDF logo below.", baseSize: 0.8, links: { pdf: 'pdfs/ek131.pdf' } },
+                { title: "The GoPan", imageUrl: "images/gopan.png", description: "Here's an ongoing project on generating heat through nothing but friction, inspired by the millions worldwide who lack steady access to electricity. GoPan was nominated for the James Dyson Award in 2024. Click the PDF logo below for more info.", baseSize: 0.8, links: { pdf: 'pdfs/heater.pdf' } },
+                { title: "R.O.M. - Room Occupancy Monitor", imageUrl: "images/210.png", description: "For an engineering design course, my group and I developed a room occupancy tracking device using CAD modeling, 3D printing, circuit planning, soldering, and C++ programming. Our project was voted a stand-out project and selected to be displayed in the BU Engineering building. Access the full project report and demo video by clicking on the PDF and movie logos below.", baseSize: 0.8, links: { pdf: 'pdfs/romfinal.pdf', video: 'https://youtu.be/8yThHoSw6dg' } },
+                { title: "Architectural Design", imageUrl: "images/archproj.png", description: "A 'cold-climate design' project that served as my introduction to the architectural process, from the first idea to the final prototype. Access a short breakdown of the project by clicking on the PDF logo below.", baseSize: 0.8, links: { pdf: 'pdfs/arch.pdf' } },
+                { title: "'Calculus Controversy' Animation", imageUrl: "images/calcpic.png", description: "Here's a three minute educational-style video I created about the Isaac Newton and Gottfried Wilhelm Leibniz calculus debate. I made the video using Adobe Creative Cloud applications, including Animate and Audition. Click the film graphic below to watch the video.", baseSize: 0.8, links: { video: 'videos/calc.mp4' } },
+                { title: "CAD 3D Modeling and Engineering Drawing Using SolidWorks", imageUrl: "images/assem.png", description: "I grew my engineering design abilities through a CAD and Machine Components course, for which I've made several CAD part models and respective drawings. Click the PDF logo below to view some examples, and the video logo to view an animation.", baseSize: 0.8, links: { pdf: 'pdfs/me357.pdf', video: 'videos/assem.mp4' } },
+                { title: "Custom Drone Build", imageUrl: "images/drone.png", description: "A personal project that I'm currently working on is building a drone using some open source carbon fiber frame components and 3D printed toroidal propellers, as well as a Speedy Bee computing stack. Click on the PDF logo below to view some of the progress.", baseSize: 0.8, links: { pdf: 'pdfs/drone.pdf' } },
+                { title: "Egg-Bot", imageUrl: "images/eggbot2.png", description: "My 'introduction to robotics' project was creating a robot fit for combat and exploration in uneven terrain. The design concept was that the robot would be able to overcome a variety of obstacles through its egg-shape, as it would be impossible to place it in a situation where it wouldn't be able to continue moving. Click on the PDF logo below to view some of more design information.", baseSize: 0.8, links: { pdf: 'pdfs/eggbotinfo.pdf' } },
+                { title: "Machinery", imageUrl: "images/machineryex.png", description: "Through working at EPIC-BU as a lab assistant and then lab student leader, I was able to grow my product design skills. While assisting visitors at EPIC has helped me improve my previously-gained abilities - such as laser cutting and 3D printing - training in the use of subtractive manufacturing machinery - such as the mill and lathe - has opened up new possibilities for my creations.", baseSize: 0.8, links: { pdf: 'pdfs/machiningstuff.pdf' } }
+            ];
+            addImagesToGroup(projectGroup, projectItems);
+        }
+
+        function addAboutContent() {
+             const globeRadius = 1.8;
+            const noteSize = 0.9;
+            const createStickyNoteTexture = (title, text, color, isIntro = false) => {
+                const canvas = document.createElement('canvas');
+                const size = 512;
+                canvas.width = size;
+                canvas.height = size;
+                const context = canvas.getContext('2d');
+                context.fillStyle = color;
+                context.fillRect(0, 0, size, size);
+                const gradient = context.createLinearGradient(0, 0, 0, size);
+                gradient.addColorStop(0, 'rgba(0,0,0,0)');
+                gradient.addColorStop(1, 'rgba(0,0,0,0.1)');
+                context.fillStyle = gradient;
+                context.fillRect(0, 0, size, size);
+                context.fillStyle = '#333333';
+                context.textAlign = 'center';
+                context.textBaseline = 'top';
+                const titleFontSize = 48;
+                const bodyFontSize = isIntro ? 32 : 28;
+                const bodyLineHeight = isIntro ? 40 : 34;
+                const spaceBetween = 20;
+                const lines = text.split('\n');
+                const totalHeight = titleFontSize + spaceBetween + (lines.length * bodyLineHeight);
+                let currentY = (size - totalHeight) / 2;
+                context.font = `bold ${titleFontSize}px Inter`;
+                context.fillText(title, size / 2, currentY);
+                currentY += titleFontSize + spaceBetween;
+                context.font = `${bodyFontSize}px Inter`;
+                lines.forEach(line => {
+                    context.fillText(line, size / 2, currentY);
+                    currentY += bodyLineHeight;
+                });
+                return new THREE.CanvasTexture(canvas);
+            };
+
+            const aboutItemsUnshuffled = [
+                { type: 'note', title: 'For Fun', text: 'Photography • Drawing\nVolleyball • Snowboarding\nRunning • Guitar', color: '#bbdefb', isIntro: true },
+                { type: 'note', title: 'Education', text: "Computer Engineering @ BU ('26)\nExchange Semester @ USYD ('25)\nFine Arts @ LaGuardia HS ('22)", color: '#d1c4e9' },
+                { type: 'note', title: 'Experience', text: "UI/UX Designer @ Stethy ('25)\nEng. Teaching Assistant @ BU ('24)\nSoftware Engineer @ Linguana ('24)\nLab Assistant @ BU ('23)", color: '#fce4ec' },
+                { type: 'note', title: 'Cities', text: 'New York • Boston\nTel Aviv • Sydney', color: '#c8e6c9' },
+                { type: 'note', title: 'Intro', text: "I'm Adam, a creative technologist\nand artist exploring the intersection\nof design, technology, and\nhuman experience.", color: '#fff9c4', isIntro: false },
+                { type: 'photo', url: "images/boarding.png" }, { type: 'photo', url: "images/dragon.png" },
+                { type: 'photo', url: "images/headstand.png" }, { type: 'photo', url: "images/sand.png" },
+                { type: 'photo', url: "images/scuba.png" }, { type: 'photo', url: "images/skiface.png" },
+                { type: 'photo', url: "images/skydiving.png" }, { type: 'photo', url: "images/skydiving2.png" },
+                { type: 'photo', url: "images/surfing.png" }, { type: 'photo', url: "images/wow.png" },
+                { type: 'photo', url: "images/bereal.JPG" },
+            ];
+
+            const firstItem = aboutItemsUnshuffled.shift();
+            const shuffledItems = aboutItemsUnshuffled.sort(() => Math.random() - 0.5);
+            const aboutItems = [firstItem, ...shuffledItems];
+
+            const textureLoader = new THREE.TextureLoader();
+
+            aboutItems.forEach((item, i) => {
+                const phi = Math.acos(-1 + (2 * i) / aboutItems.length);
+                const theta = Math.sqrt(aboutItems.length * Math.PI) * phi;
+
+                if (item.type === 'note') {
+                    const texture = createStickyNoteTexture(item.title, item.text, item.color, item.isIntro);
+                    const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true, opacity: 0 });
+                    const geometry = new THREE.PlaneGeometry(noteSize, noteSize);
+                    const mesh = new THREE.Mesh(geometry, material);
+                    mesh.rotation.z = (Math.random() - 0.5) * 0.2;
+                    mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
+                    aboutGroup.add(mesh);
+                } else { // 'photo'
+                    textureLoader.load(item.url, (texture) => {
+                        const baseHeight = 0.6;
+                        const aspectRatio = texture.image.width / texture.image.height;
+                        const geometry = new THREE.PlaneGeometry(baseHeight * aspectRatio, baseHeight);
+                        const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide, transparent: true, opacity: 0 });
+                        const mesh = new THREE.Mesh(geometry, material);
+                        mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
+                        aboutGroup.add(mesh);
+                    }, undefined, (err) => console.error('An error happened loading the texture:', item.url, err));
+                }
+            });
+        }
+
+
+        // --- ANIMATION & EVENT LISTENERS ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+            [artGroup, projectGroup, aboutGroup].forEach(group => {
+                group.children.forEach(mesh => {
+                    if (mesh.visible) mesh.lookAt(camera.position);
+                });
+            });
+            renderer.render(scene, camera);
+        }
+
+        function onMouseDown(event) {
+            if (event.target.closest('.popup-window')) return;
+            isDragging = true;
+            hasDragged = false;
+            previousMouseX = event.clientX;
+            previousMouseY = event.clientY;
+            mouseDownX = event.clientX;
+            mouseDownY = event.clientY;
+            renderer.domElement.style.cursor = 'grabbing';
+        }
+
+        function onMouseUp(event) {
+            if (!hasDragged) {
+                onCanvasClick(event);
+            }
+            isDragging = false;
+            renderer.domElement.style.cursor = 'grab';
+        }
+
+        function onMouseMove(event) {
+            if (!isDragging) return;
+
+            const deltaX = Math.abs(event.clientX - mouseDownX);
+            const deltaY = Math.abs(event.clientY - mouseDownY);
+            if (deltaX > dragThreshold || deltaY > dragThreshold) {
+                hasDragged = true;
+            }
+
+            if (hasDragged) {
+                const moveDeltaX = event.clientX - previousMouseX;
+                const moveDeltaY = event.clientY - previousMouseY;
+                scene.rotation.y += moveDeltaX * rotationSpeed;
+                const newRotationX = scene.rotation.x + moveDeltaY * rotationSpeed;
+                scene.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, newRotationX));
+                previousMouseX = event.clientX;
+                previousMouseY = event.clientY;
+            }
+        }
+
+        function onMouseWheel(event) {
+            event.preventDefault();
+            camera.position.z += event.deltaY * zoomSpeed * 0.01;
+            camera.position.z = Math.max(1.5, Math.min(10, camera.position.z));
+        }
+
+        function onCanvasClick(event) {
+            if (hasDragged) return;
+
+            if (projectGroup.visible) {
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                raycaster.setFromCamera(mouse, camera);
+                const intersects = raycaster.intersectObjects(projectGroup.children);
+                if (intersects.length > 0) {
+                    showProjectPopup(intersects[0].object.userData);
+                }
+            }
+        }
+
+        function onMouseLeave() {
+            isDragging = false;
+            renderer.domElement.style.cursor = 'grab';
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function getCurrentActiveContentGroup() {
+            if (projectsButton.classList.contains('active')) return projectGroup;
+            if (artButton.classList.contains('active')) return artGroup;
+            if (aboutButton.classList.contains('active')) return aboutGroup;
+            return null;
+        }
+
+        // --- UI LOGIC ---
+
+        function setupSliderMenu() {
+            const projectsButton = document.getElementById('projectsButton');
+            const artButton = document.getElementById('artButton');
+            const aboutButton = document.getElementById('aboutButton');
+
+            function setActiveButton(activeButton) {
+                [projectsButton, artButton, aboutButton].forEach(button => {
+                    button.classList.toggle('active', button === activeButton);
+                });
+            }
+
+            function handleCategoryChange(incomingGroup) {
+                if (popup) {
+                    popup.style.display = 'none';
+                    // Reset window on category change
+                    popup.style.width = "";
+                    popup.style.height = "";
+                    popup.style.top = "50%";
+                    popup.style.left = "50%";
+                    popup.style.transform = "translate(-50%, -50%)";
+                }
+
+                const tl = gsap.timeline();
+                const outgoingGroup = getCurrentActiveContentGroup();
+                const moveDistance = 50;
+
+                if (outgoingGroup && outgoingGroup !== incomingGroup) {
+                    tl.to(outgoingGroup.position, { y: moveDistance, duration: 0.7, ease: "power2.in" }, 0);
+                    outgoingGroup.traverse(obj => {
+                        if (obj.isMesh && obj.material.transparent) {
+                            tl.to(obj.material, { opacity: 0, duration: 0.5, ease: "power2.in" }, 0);
+                        }
+                    });
+                }
+
+                tl.call(() => {
+                    if (outgoingGroup && outgoingGroup !== incomingGroup) outgoingGroup.visible = false;
+                    incomingGroup.visible = true;
+                    incomingGroup.position.y = -moveDistance;
+                }, null, outgoingGroup ? 0.6 : 0);
+
+                tl.to(incomingGroup.position, { y: 0, duration: 0.7, ease: "power2.out" });
+                incomingGroup.traverse(obj => {
+                    if (obj.isMesh && obj.material.transparent) {
+                        tl.to(obj.material, { opacity: 1, duration: 0.7, ease: "power2.out" }, "-=0.6");
+                    }
+                });
+                tl.to(scene.rotation, { x: 0, y: 0, z: 0, duration: 0.7, ease: "power2.inOut"}, 0);
+            }
+
+            [ { btn: projectsButton, group: projectGroup }, { btn: artButton, group: artGroup }, { btn: aboutButton, group: aboutGroup }
+            ].forEach(({btn, group}) => {
+                btn.addEventListener('click', () => {
+                    if(btn.classList.contains('active')) return;
+                    handleCategoryChange(group);
+                    setActiveButton(btn);
+                });
+            });
+
+            setActiveButton(null);
+        }
+
+        function setupPopupWindow() {
+            popup = document.getElementById('popup-window');
+            header = document.getElementById('popup-header');
+            const closeBtn = document.getElementById('popup-close');
+
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+
+            header.addEventListener('mousedown', (e) => {
+                isPopupDragging = true;
+                offsetX = e.clientX - popup.offsetLeft;
+                offsetY = e.clientY - popup.offsetTop;
+                document.body.style.userSelect = 'none';
+            });
+
+            document.addEventListener('mouseup', () => {
+                isPopupDragging = false;
+                document.body.style.userSelect = 'auto';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isPopupDragging) return;
+                e.preventDefault();
+                popup.style.left = `${e.clientX - offsetX}px`;
+                popup.style.top = `${e.clientY - offsetY}px`;
+            });
+        }
+
+        function showProjectPopup(data) {
+            const popupTitle = document.getElementById('popup-title');
+            const popupImage = document.getElementById('popup-image');
+            const popupDescription = document.getElementById('popup-description');
+            const popupLinksContainer = document.getElementById('popup-links');
+
+            popupTitle.textContent = data.title;
+            popupImage.src = data.imageUrl;
+            popupImage.alt = data.title;
+            popupDescription.textContent = data.description;
+
+            // Clear previous links and populate new ones
+            popupLinksContainer.innerHTML = '';
+            if (data.links) {
+                // This map now contains the image data directly, so no external files are needed.
+                const logoMap = {
+                    github: 'images/icons/github.png',
+                    pdf: 'images/icons/pdf.png',
+                    video: 'images/icons/video.png'
+                };
+
+                for (const key in data.links) {
+                    const logoType = key.replace(/\d/g, '');
+
+                    if (logoMap[logoType]) {
+                        const link = document.createElement('a');
+                        link.href = data.links[key];
+                        link.target = '_blank';
+
+                        const img = document.createElement('img');
+                        img.src = logoMap[logoType];
+                        img.alt = `${logoType} link`;
+
+                        link.appendChild(img);
+                        popupLinksContainer.appendChild(link);
+                    }
+                }
+            }
+
+
+            if (popup.style.display !== 'flex') {
+                popup.style.width = "";
+                popup.style.height = "";
+                popup.style.top = "50%";
+                popup.style.left = "50%";
+                popup.style.transform = "translate(-50%, -50%)";
+            }
+
+            popup.style.display = 'flex';
+        }
+
+        window.onload = function() {
+            init();
+            animate();
+        };
+    </script>
+</body>
 </html>
