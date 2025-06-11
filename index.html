@@ -17,6 +17,25 @@
         }
         canvas { display: block; width: 100vw; height: 100vh; }
 
+        /* --- Welcome Message --- */
+        #welcome-message-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(99, 99, 116, 0.5); /* translucent #1a1a2e */
+            color: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 200;
+            opacity: 0; /* Start hidden */
+            pointer-events: none; /* Don't block mouse events */
+            transition: opacity 1.5s ease-in-out;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
         .vertical-menu {
             position: absolute;
             bottom: 20px;
@@ -173,6 +192,10 @@
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
+            #welcome-message-container {
+                font-size: 1em;
+                width: 80vw;
+            }
             .slider-menu {
                 padding: 5px;
                 border-radius: 10px;
@@ -210,6 +233,10 @@
     </style>
 </head>
 <body>
+    <div id="welcome-message-container">
+        <p>Hi! Select a category above to begin exploring.<br>Drag to rotate, scroll or pinch to zoom.</p>
+    </div>
+
     <div class="slider-menu">
         <button id="projectsButton" class="slider-menu-button">PROJECTS</button>
         <button id="artButton" class="slider-menu-button">ART</button>
@@ -657,6 +684,7 @@
             const projectsButton = document.getElementById('projectsButton');
             const artButton = document.getElementById('artButton');
             const aboutButton = document.getElementById('aboutButton');
+            const welcomeMessage = document.getElementById('welcome-message-container');
 
             function setActiveButton(activeButton) {
                 [projectsButton, artButton, aboutButton].forEach(button => {
@@ -706,6 +734,10 @@
             [ { btn: projectsButton, group: projectGroup }, { btn: artButton, group: artGroup }, { btn: aboutButton, group: aboutGroup }
             ].forEach(({btn, group}) => {
                 btn.addEventListener('click', () => {
+                    // Hide welcome message on first category selection
+                    if (welcomeMessage.style.opacity !== '0') {
+                        welcomeMessage.style.opacity = '0';
+                    }
                     if(btn.classList.contains('active')) return;
                     handleCategoryChange(group);
                     setActiveButton(btn);
@@ -811,6 +843,14 @@
         window.onload = function() {
             init();
             animate();
+
+            // --- Welcome Message Logic ---
+            const welcomeMessage = document.getElementById('welcome-message-container');
+            
+            // Start fade in after a short delay
+            setTimeout(() => {
+                welcomeMessage.style.opacity = '1';
+            }, 500);
         };
     </script>
 </body>
