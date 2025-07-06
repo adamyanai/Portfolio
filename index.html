@@ -17,6 +17,41 @@
         }
         canvas { display: block; width: 100vw; height: 100vh; }
 
+        /* --- Loading Screen --- */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            border-top: 8px solid #1a1a2e; /* Black */
+            border-right: 8px solid #1a1a2e; /* Black */
+            border-bottom: 8px solid #1a1a2e; /* Black */
+            border-left: 8px solid #cccccc; /* Grey */
+            opacity: 0; /* Start hidden for fade-in */
+            transition: opacity 0.5s ease-in; /* Fade-in transition */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* --- Welcome Message --- */
         #welcome-message-container {
             position: absolute;
@@ -233,6 +268,10 @@
     </style>
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
     <div id="welcome-message-container">
         <p>Hi! Select a category above to begin exploring.<br>Drag to rotate, scroll or pinch to zoom.</p>
     </div>
@@ -724,10 +763,10 @@
 
                 tl.to(incomingGroup.position, { y: 0, duration: 0.7, ease: "power2.out" });
                 incomingGroup.traverse(obj => {
-                    if (obj.isMesh && obj.material.transparent) {
-                        tl.to(obj.material, { opacity: 1, duration: 0.7, ease: "power2.out" }, "-=0.6");
-                    }
-                });
+                        if (obj.isMesh && obj.material.transparent) {
+                            tl.to(obj.material, { opacity: 1, duration: 0.7, ease: "power2.out" }, "-=0.6");
+                        }
+                    });
                 tl.to(scene.rotation, { x: 0, y: 0, z: 0, duration: 0.7, ease: "power2.inOut"}, 0);
             }
 
@@ -841,16 +880,38 @@
         }
 
         window.onload = function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const loader = document.querySelector('.loader'); // Get the loader element
+            const welcomeMessage = document.getElementById('welcome-message-container');
+            
+            // Initially hide all main content elements
+            document.querySelector('.slider-menu').style.opacity = '0';
+            document.querySelector('.vertical-menu').style.opacity = '0';
+            welcomeMessage.style.opacity = '0'; // Ensure welcome message is also hidden initially
+
+            // Fade in the loader after a short delay
+            setTimeout(() => {
+                loader.style.opacity = '1';
+            }, 100); // Small delay to ensure the initial state is applied
+
+            // Initialize the Three.js scene and content
             init();
             animate();
 
-            // --- Welcome Message Logic ---
-            const welcomeMessage = document.getElementById('welcome-message-container');
-            
-            // Start fade in after a short delay
+            // Hide loading screen after 6 seconds
             setTimeout(() => {
-                welcomeMessage.style.opacity = '1';
-            }, 500);
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    // Show main content elements after loading screen is gone
+                    document.querySelector('.slider-menu').style.opacity = '1';
+                    document.querySelector('.vertical-menu').style.opacity = '1';
+                    // Start fade in for welcome message after loading screen is gone
+                    setTimeout(() => {
+                        welcomeMessage.style.opacity = '1';
+                    }, 500); // Short delay for welcome message fade-in
+                }, 500); // Duration of the opacity transition
+            }, 6000); // 6 seconds
         };
     </script>
 </body>
