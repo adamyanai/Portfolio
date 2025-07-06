@@ -318,10 +318,18 @@
             addAboutContent();
 
             // Initial Visibility
-            // All groups are initially not visible, and their meshes will fade in when their category is selected
             artGroup.visible = false;
             projectGroup.visible = false;
             aboutGroup.visible = false;
+
+             [artGroup, projectGroup, aboutGroup].forEach(group => {
+                group.traverse(obj => {
+                    if (obj.isMesh && obj.material) {
+                        obj.material.opacity = 0;
+                    }
+                });
+            });
+
 
             // --- EVENT LISTENERS ---
             // Mouse Listeners
@@ -350,9 +358,6 @@
             const textureLoader = new THREE.TextureLoader();
 
             items.forEach((item, i) => {
-                const phi = Math.acos(-1 + (2 * i) / items.length);
-                const theta = Math.sqrt(items.length * Math.PI) * phi;
-
                 textureLoader.load(item.imageUrl, (texture) => {
                     const aspectRatio = texture.image.width / texture.image.height;
                     const planeHeight = item.baseSize;
@@ -363,20 +368,17 @@
                         map: texture,
                         side: THREE.DoubleSide,
                         transparent: true,
-                        opacity: 0 // Start with opacity 0
+                        opacity: 0
                     });
                     const mesh = new THREE.Mesh(geometry, material);
 
                     mesh.userData = item;
 
+                    const phi = Math.acos(-1 + (2 * i) / items.length);
+                    const theta = Math.sqrt(items.length * Math.PI) * phi;
                     mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
 
                     group.add(mesh);
-
-                    // Animate opacity only if the group is currently visible
-                    if (group.visible) {
-                        gsap.to(mesh.material, { opacity: 1, duration: 0.7, ease: "power2.out" });
-                    }
                 }, undefined, (err) => {
                     console.error('An error happened loading the texture:', item.imageUrl, err);
                 });
@@ -509,9 +511,6 @@
                     mesh.rotation.z = (Math.random() - 0.5) * 0.2;
                     mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
                     aboutGroup.add(mesh);
-                    if (aboutGroup.visible) {
-                        gsap.to(mesh.material, { opacity: 1, duration: 0.7, ease: "power2.out" });
-                    }
                 } else { // 'photo'
                     textureLoader.load(item.url, (texture) => {
                         const baseHeight = 0.6;
@@ -521,9 +520,6 @@
                         const mesh = new THREE.Mesh(geometry, material);
                         mesh.position.setFromSphericalCoords(globeRadius, phi, theta);
                         aboutGroup.add(mesh);
-                        if (aboutGroup.visible) {
-                            gsap.to(mesh.material, { opacity: 1, duration: 0.7, ease: "power2.out" });
-                        }
                     }, undefined, (err) => console.error('An error happened loading the texture:', item.url, err));
                 }
             });
@@ -714,7 +710,7 @@
                 if (outgoingGroup && outgoingGroup !== incomingGroup) {
                     tl.to(outgoingGroup.position, { y: moveDistance, duration: 0.7, ease: "power2.in" }, 0);
                     outgoingGroup.traverse(obj => {
-                        if (obj.isMesh && obj.material && obj.material.transparent) {
+                        if (obj.isMesh && obj.material.transparent) {
                             tl.to(obj.material, { opacity: 0, duration: 0.5, ease: "power2.in" }, 0);
                         }
                     });
@@ -724,19 +720,14 @@
                     if (outgoingGroup && outgoingGroup !== incomingGroup) outgoingGroup.visible = false;
                     incomingGroup.visible = true;
                     incomingGroup.position.y = -moveDistance;
-                    // Animate in newly visible or previously hidden meshes
-                    incomingGroup.traverse(obj => {
-                        if (obj.isMesh && obj.material && obj.material.transparent && obj.material.map) {
-                            // Only animate if texture is loaded and opacity is not already 1
-                            if (obj.material.opacity < 1) {
-                                gsap.to(obj.material, { opacity: 1, duration: 0.7, ease: "power2.out" });
-                            }
-                        }
-                    });
                 }, null, outgoingGroup ? 0.6 : 0);
 
                 tl.to(incomingGroup.position, { y: 0, duration: 0.7, ease: "power2.out" });
-                
+                incomingGroup.traverse(obj => {
+                    if (obj.isMesh && obj.material.transparent) {
+                        tl.to(obj.material, { opacity: 1, duration: 0.7, ease: "power2.out" }, "-=0.6");
+                    }
+                });
                 tl.to(scene.rotation, { x: 0, y: 0, z: 0, duration: 0.7, ease: "power2.inOut"}, 0);
             }
 
