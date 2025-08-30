@@ -283,7 +283,7 @@
 
     <div class="slider-menu">
         <button id="projectsButton" class="slider-menu-button">PROJECTS</button>
-        <button id="artButton" class="slider-menu-button">ART</button>
+        <button id="artButton" class="slider-menu-button">ART & PHOTOGRAPHY</button>
         <button id="aboutButton" class="slider-menu-button">ABOUT</button>
     </div>
 
@@ -321,6 +321,29 @@
         let zoomSpeed = 0.1;
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
+
+        // --- LOADING MANAGER ---
+        const loadingManager = new THREE.LoadingManager(
+            () => {
+                // Called when ALL textures have finished loading
+                const loadingScreen = document.getElementById('loading-screen');
+                const welcomeMessage = document.getElementById('welcome-message-container');
+
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    document.querySelector('.slider-menu').style.opacity = '1';
+                    document.querySelector('.vertical-menu').style.opacity = '1';
+                    welcomeMessage.style.opacity = '1';
+                }, 500); // match fade transition
+            },
+            (itemUrl, itemsLoaded, itemsTotal) => {
+                console.log(`Loaded ${itemsLoaded}/${itemsTotal}: ${itemUrl}`);
+            },
+            (url) => {
+                console.error('Error loading:', url);
+            }
+        );
 
         // --- POPUP & DRAG GLOBALS ---
         let popup, header, isPopupDragging = false;
@@ -399,7 +422,7 @@
 
         function addImagesToGroup(group, items) {
             const globeRadius = 3;
-            const textureLoader = new THREE.TextureLoader();
+            const textureLoader = new THREE.TextureLoader(loadingManager);
 
             items.forEach((item, i) => {
                 textureLoader.load(item.imageUrl, (texture) => {
@@ -529,7 +552,7 @@
             const aboutItemsUnshuffled = [
                 { type: 'note', title: 'For Fun', text: 'Photography • Drawing\nVolleyball • Snowboarding\nRunning • Guitar', color: '#bbdefb', isIntro: true },
                 { type: 'note', title: 'Education', text: "Computer Engineering @ BU ('26)\nExchange Semester @ USYD ('25)\nFine Arts @ LaGuardia HS ('22)", color: '#d1c4e9' },
-                { type: 'note', title: 'Experience', text: "UI/UX Designer @ Stethy ('25)\nEng. Teaching Assistant @ BU ('24)\nSoftware Engineer @ Linguana ('24)\nLab Assistant @ BU ('23)", color: '#fce4ec' },
+                { type: 'note', title: 'Experience', text: "AI Engineer @ Loora ('25)\nUI/UX Designer @ Stethy ('25)\nTeaching Assistant @ BU ('24)\nSWE @ Linguana ('24)\nLab Assistant @ BU ('23)", color: '#fce4ec' },
                 { type: 'note', title: 'Cities', text: 'New York • Boston\nTel Aviv • Sydney', color: '#c8e6c9' },
                 { type: 'note', title: 'Intro', text: "I'm Adam, a creative technologist\nand artist exploring the intersection\nof design, technology, and\nhuman experience.", color: '#fff9c4', isIntro: false },
                 { type: 'photo', url: "images/boarding.png" }, { type: 'photo', url: "images/dragon.png" },
@@ -544,7 +567,7 @@
             const shuffledItems = aboutItemsUnshuffled.sort(() => Math.random() - 0.5);
             const aboutItems = [firstItem, ...shuffledItems];
 
-            const textureLoader = new THREE.TextureLoader();
+            const textureLoader = new THREE.TextureLoader(loadingManager);
 
             aboutItems.forEach((item, i) => {
                 const phi = Math.acos(-1 + (2 * i) / aboutItems.length);
@@ -906,21 +929,6 @@
             // Initialize the Three.js scene and content
             init();
             animate();
-
-            // Hide loading screen after 6 seconds
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                    // Show main content elements after loading screen is gone
-                    document.querySelector('.slider-menu').style.opacity = '1';
-                    document.querySelector('.vertical-menu').style.opacity = '1';
-                    // Start fade in for welcome message after loading screen is gone
-                    setTimeout(() => {
-                        welcomeMessage.style.opacity = '1';
-                    }, 500); // Short delay for welcome message fade-in
-                }, 500); // Duration of the opacity transition
-            }, 6000); // 6 seconds
         };
     </script>
 </body>
